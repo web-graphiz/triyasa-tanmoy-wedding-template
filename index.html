@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ==========================================================================
+       METADATA & DOCUMENT CONFIGURATION
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Page SEO & Title -->
+  <title>Triyasa & Tanmoy - Wedding Invitation</title>
+  <meta name="title" content="Triyasa & Tanmoy - Royal Wedding Invitation">
+  <meta name="description" content="We invite you to celebrate the royal wedding reception of Triyasa and Tanmoy. Join us for an unforgettable Indian wedding celebration with sacred rituals and joyous festivities.">
+  <meta name="keywords" content="Triyasa, Tanmoy, Wedding, Reception, Indian Wedding, Invitation, Kolkata, Shubho Bibaho">
+  <meta name="author" content="Triyasa & Tanmoy">
+  <meta name="theme-color" content="#8faed9">
+
+  <!-- Open Graph / Social Media Sharing Metadata (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Triyasa & Tanmoy - Royal Wedding Invitation">
+  <meta property="og:description" content="Cordially invite you to celebrate the sacred union of their hearts & families. Join us on December 12, 2026.">
+  <meta property="og:image" content="assets/images/hero_couple.jpg">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Triyasa & Tanmoy - Royal Wedding Invitation">
+  <meta name="twitter:description" content="Celebrate the sacred union of Triyasa and Tanmoy. View the events program and RSVP.">
+  <meta name="twitter:image" content="assets/images/hero_couple.jpg">
+
+  <!-- Favicons & Mobile Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
+  <!-- ==========================================================================
+       EXTERNAL STYLESHEETS & FONTS
+       - Font Awesome 6: Vector iconography for UI & social links
+       - Custom Stylesheet: Main responsive design, pastel palette & animations
+       ========================================================================== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. INTERACTIVE BACKGROUND ANIMATION
+       - Fullscreen HTML5 Canvas overlay rendering falling rose & marigold petals
+       - Toggled on/off via the navbar petal control button
+       ========================================================================== -->
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================================
+       2. PRIMARY NAVIGATION BAR
+       - Fixed header with glassmorphism blur and smooth scroll state changes
+       - Contains brand logo, section anchors, and interactive multimedia toggles
+       ========================================================================== -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+      <div class="container nav-container">
+        
+        <!-- Brand / Couple Monogram Logo -->
+        <a href="#hero" class="logo" aria-label="Triyasa and Tanmoy Wedding Homepage">
+          Triyasa <span>&</span> Tanmoy
+        </a>
+        
+        <!-- Navigation Menu Links (ScrollSpy enabled) -->
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#events">Program</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+        </ul>
+
+        <!-- Quick Action Buttons: Petal FX, Audio Player & Mobile Toggle -->
+        <div class="nav-actions">
+          <!-- Toggle Falling Petal Animation -->
+          <button id="petal-toggle" class="petal-btn" type="button" title="Toggle Falling Petals" aria-label="Toggle Falling Petals">
+            <i class="fas fa-spa" aria-hidden="true"></i>
+          </button>
+
+          <!-- Toggle Synthesized Web Audio Instrumental Melody -->
+          <button id="audio-toggle" class="audio-btn" type="button" title="Play Background Music" aria-label="Play Background Music">
+            <i id="audio-icon" class="fas fa-volume-mute" aria-hidden="true"></i>
+          </button>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobile-toggle" class="mobile-toggle" type="button" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       3. HERO SECTION - ROYAL INDIAN WEDDING SUITE
+       - Auspicious Sanskrit invocation (Shree Ganeshayah Namah)
+       - 3-Column Regal Layout: Bride Card, Central Couple Emblem, Groom Card
+       - Rotating sacred mandala watermark in background
+       ========================================================================== -->
+  <main>
+    <section id="hero" class="hero-section" aria-labelledby="hero-title">
+      
+      <!-- Background Rotating Mandala Watermark -->
+      <div class="hero-bg-watermark" aria-hidden="true">
+        <svg viewBox="0 0 600 600" fill="none" opacity="0.04" class="mandala-watermark">
+          <circle cx="300" cy="300" r="280" stroke="#6486be" stroke-width="2"/>
+          <circle cx="300" cy="300" r="240" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="6 6"/>
+          <circle cx="300" cy="300" r="180" stroke="#6486be" stroke-width="2"/>
+          <circle cx="300" cy="300" r="120" stroke="#d4af37" stroke-width="1.5"/>
+          <circle cx="300" cy="300" r="60" stroke="#6486be" stroke-width="2"/>
+          <path d="M300,20 L300,580 M20,300 L580,300 M102,102 L498,498 M102,498 L498,102" stroke="#6486be" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        
+        <!-- Header Banner: Auspicious Invocation & Main Invitation Headline -->
+        <header class="hero-intro-header reveal">
+          <div class="auspicious-mantra">
+            <span class="sparkle" aria-hidden="true">✦</span>
+            <span>॥ श्री गणेशाय नमः ॥</span>
+            <span class="sparkle" aria-hidden="true">✦</span>
+          </div>
+          <div class="hero-subheading">With the heavenly blessings of our beloved parents</div>
+          <h1 id="hero-title" class="hero-couple-title">Triyasa <span class="ampersand">&</span> Tanmoy</h1>
+          <p class="hero-invitation-note">Cordially invite you to celebrate the sacred union of their hearts & families</p>
+          <div class="hero-title-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-icon">❦</span>
+            <span class="divider-line"></span>
+          </div>
+        </header>
+
+        <!-- 3-Column Hero Grid: Bride / Central Couple Badge / Groom -->
+        <div class="hero-grid">
+          
+          <!-- ==========================================
+               HERO CARD: THE BRIDE (Triyasa)
+               ========================================== -->
+          <article class="person-royal-card bride-card reveal" aria-label="Profile of the Bride, Triyasa Das">
+            <div class="card-inner-frame">
+              <!-- Decorative Royal Filigree SVGs (Corners) -->
+              <svg class="royal-filigree filigree-top-left" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L32,4 M4,4 L4,32 M4,4 Q24,6 24,24 Q6,24 4,4" fill="none" stroke="#d4af37" stroke-width="1.8"/>
+                <circle cx="16" cy="16" r="3.5" fill="#d4af37"/>
+                <circle cx="28" cy="8" r="1.8" fill="#8faed9"/>
+                <circle cx="8" cy="28" r="1.8" fill="#8faed9"/>
+              </svg>
+              <svg class="royal-filigree filigree-top-right" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L32,4 M4,4 L4,32 M4,4 Q24,6 24,24 Q6,24 4,4" fill="none" stroke="#d4af37" stroke-width="1.8"/>
+                <circle cx="16" cy="16" r="3.5" fill="#d4af37"/>
+                <circle cx="28" cy="8" r="1.8" fill="#8faed9"/>
+                <circle cx="8" cy="28" r="1.8" fill="#8faed9"/>
+              </svg>
+              <svg class="royal-filigree filigree-bottom-left" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L28,4 M4,4 L4,28 M4,4 Q20,5 20,20 Q5,20 4,4" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="14" cy="14" r="2.8" fill="#d4af37"/>
+              </svg>
+              <svg class="royal-filigree filigree-bottom-right" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L28,4 M4,4 L4,28 M4,4 Q20,5 20,20 Q5,20 4,4" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="14" cy="14" r="2.8" fill="#d4af37"/>
+              </svg>
+
+              <!-- Arched Portrait Container -->
+              <div class="person-portrait-container">
+                <div class="person-portrait-arch">
+                  <img src="assets/images/bride.jpg" alt="Triyasa Das - The Indian Bride" class="portrait-img" loading="lazy">
+                  <div class="portrait-overlay-glow" aria-hidden="true"></div>
+                </div>
+                <!-- Role Badge -->
+                <div class="royal-role-badge bride-badge">
+                  <i class="fas fa-crown" aria-hidden="true"></i> The Bride
+                </div>
+              </div>
+
+              <!-- Bride Personal Details & Lineage -->
+              <div class="person-details">
+                <h2 class="person-display-name">Triyasa Das</h2>
+                
+                <div class="person-lineage-box">
+                  <span class="lineage-tag">Daughter of</span>
+                  <span class="lineage-names">Mr. Rabindra Nath & Mrs. Kalyani Das</span>
+                </div>
+
+                <div class="person-trait-tag">
+                  <i class="fas fa-feather-alt" aria-hidden="true"></i> Classical Soul & Creative Artist
+                </div>
+
+                <blockquote class="person-quote-text">
+                  “With grace in her footsteps and song in her heart, ready to embark on a forever blessed with love and joy.”
+                </blockquote>
+
+                <!-- Social Link & Wish Button -->
+                <div class="person-card-footer">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="person-social-pill" title="Follow Bride on Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> <span>@triyasa.das</span>
+                  </a>
+                  <a href="#rsvp" class="person-wish-btn" title="Send blessings to the Bride">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               HERO CENTER: COUPLE EMBLEM & CALL TO ACTIONS
+               ========================================== -->
+          <div class="hero-center-card reveal">
+            <div class="hero-center-wrap">
+              <!-- Auspicious Top Crest -->
+              <div class="hero-center-ornament top-crest" aria-hidden="true">
+                <span class="crest-leaf left">❧</span>
+                <span class="crest-shree">शुभ विवाह</span>
+                <span class="crest-leaf right">☙</span>
+              </div>
+
+              <!-- Main Circular Couple Portrait Frame -->
+              <div class="hero-main-circle">
+                <img src="assets/images/hero_couple.jpg" alt="Triyasa and Tanmoy Wedding Couple" loading="eager">
+                <div class="circle-halo-glow" aria-hidden="true"></div>
+                
+                <!-- Floating Info Banner Inside Portrait -->
+                <div class="hero-banner-overlay">
+                  <div class="hero-sub">We Are Getting Married</div>
+                  <div class="hero-date">12 . 12 . 2026</div>
+                  <div class="hero-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Kolkata, West Bengal</div>
+                </div>
+              </div>
+
+              <!-- Primary Hero Action Buttons -->
+              <div class="hero-actions-group">
+                <a href="#rsvp" class="btn-hero-primary">
+                  <i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP & Bless
+                </a>
+                <a href="#events" class="btn-hero-secondary">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i> Wedding Program
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================
+               HERO CARD: THE GROOM (Tanmoy)
+               ========================================== -->
+          <article class="person-royal-card groom-card reveal" aria-label="Profile of the Groom, Tanmoy Roy">
+            <div class="card-inner-frame">
+              <!-- Decorative Royal Filigree SVGs (Corners) -->
+              <svg class="royal-filigree filigree-top-left" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L32,4 M4,4 L4,32 M4,4 Q24,6 24,24 Q6,24 4,4" fill="none" stroke="#d4af37" stroke-width="1.8"/>
+                <circle cx="16" cy="16" r="3.5" fill="#d4af37"/>
+                <circle cx="28" cy="8" r="1.8" fill="#8faed9"/>
+                <circle cx="8" cy="28" r="1.8" fill="#8faed9"/>
+              </svg>
+              <svg class="royal-filigree filigree-top-right" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L32,4 M4,4 L4,32 M4,4 Q24,6 24,24 Q6,24 4,4" fill="none" stroke="#d4af37" stroke-width="1.8"/>
+                <circle cx="16" cy="16" r="3.5" fill="#d4af37"/>
+                <circle cx="28" cy="8" r="1.8" fill="#8faed9"/>
+                <circle cx="8" cy="28" r="1.8" fill="#8faed9"/>
+              </svg>
+              <svg class="royal-filigree filigree-bottom-left" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L28,4 M4,4 L4,28 M4,4 Q20,5 20,20 Q5,20 4,4" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="14" cy="14" r="2.8" fill="#d4af37"/>
+              </svg>
+              <svg class="royal-filigree filigree-bottom-right" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M4,4 L28,4 M4,4 L4,28 M4,4 Q20,5 20,20 Q5,20 4,4" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="14" cy="14" r="2.8" fill="#d4af37"/>
+              </svg>
+
+              <!-- Arched Portrait Container -->
+              <div class="person-portrait-container">
+                <div class="person-portrait-arch">
+                  <img src="assets/images/groom.jpg" alt="Tanmoy Roy - The Indian Groom" class="portrait-img" loading="lazy">
+                  <div class="portrait-overlay-glow" aria-hidden="true"></div>
+                </div>
+                <!-- Role Badge -->
+                <div class="royal-role-badge groom-badge">
+                  <i class="fas fa-gem" aria-hidden="true"></i> The Groom
+                </div>
+              </div>
+
+              <!-- Groom Personal Details & Lineage -->
+              <div class="person-details">
+                <h2 class="person-display-name">Tanmoy Roy</h2>
+                
+                <div class="person-lineage-box">
+                  <span class="lineage-tag">Son of</span>
+                  <span class="lineage-names">Mr. Santanu Kumar & Mrs. Sunita Roy</span>
+                </div>
+
+                <div class="person-trait-tag">
+                  <i class="fas fa-compass" aria-hidden="true"></i> Adventurous Spirit & Warm Heart
+                </div>
+
+                <blockquote class="person-quote-text">
+                  “Guided by devotion and filled with gratitude, eagerly waiting to hold her hand through every chapter of life.”
+                </blockquote>
+
+                <!-- Social Link & Wish Button -->
+                <div class="person-card-footer">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="person-social-pill" title="Follow Groom on Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> <span>@tanmoy.roy</span>
+                  </a>
+                  <a href="#rsvp" class="person-wish-btn" title="Send blessings to the Groom">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. LIVE COUNTDOWN TIMER SECTION
+         - Real-time days, hours, minutes, and seconds remaining until Dec 12, 2026
+         - Dynamically updated every 1,000ms by js/app.js
+         ========================================================================== -->
+    <section class="countdown-section" aria-label="Wedding Countdown">
+      <div class="container">
+        <div class="countdown-grid reveal">
+          
+          <!-- Days Remaining -->
+          <div class="countdown-card">
+            <span id="days" class="countdown-num">000</span>
+            <span class="countdown-label">Days</span>
+            <svg class="floral-badge-deco" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="5" fill="#8faed9"/></svg>
+          </div>
+
+          <!-- Hours Remaining -->
+          <div class="countdown-card">
+            <span id="hours" class="countdown-num">00</span>
+            <span class="countdown-label">Hours</span>
+            <svg class="floral-badge-deco" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="5" fill="#8faed9"/></svg>
+          </div>
+
+          <!-- Minutes Remaining -->
+          <div class="countdown-card">
+            <span id="mins" class="countdown-num">00</span>
+            <span class="countdown-label">Mins</span>
+            <svg class="floral-badge-deco" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="5" fill="#8faed9"/></svg>
+          </div>
+
+          <!-- Seconds Remaining -->
+          <div class="countdown-card">
+            <span id="secs" class="countdown-num">00</span>
+            <span class="countdown-label">Secs</span>
+            <svg class="floral-badge-deco" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="5" fill="#8faed9"/></svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. OUR LOVE STORY TIMELINE SECTION
+         - Chronological presentation of key milestones in the couple's relationship
+         - Alternate left/right timeline layout with arched image frames
+         ========================================================================== -->
+    <section id="story" class="story-section" aria-labelledby="story-title">
+      <div class="container">
+        <div class="script-title reveal" aria-hidden="true">Our Story</div>
+        <h2 id="story-title" class="section-title reveal">Our Sweet Love Story</h2>
+
+        <div class="story-timeline">
+          
+          <!-- Timeline Item 1: First Meet -->
+          <article class="story-item reveal">
+            <div class="story-media">
+              <div class="story-img-wrap">
+                <img src="assets/images/story_meet.jpg" alt="First Time Triyasa & Tanmoy Met in Kolkata" loading="lazy">
+              </div>
+            </div>
+            <div class="story-icon-badge" aria-hidden="true"><i class="fas fa-heart"></i></div>
+            <div class="story-content">
+              <div class="story-card">
+                <time datetime="2022-02-15" class="story-date">15 Feb 2022</time>
+                <h3 class="story-title">First Time We Met</h3>
+                <p class="story-text">A serendipitous afternoon in Kolkata brought us together over warm cup of tea. One conversation turned into hours of shared laughter and instant connection.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Timeline Item 2: The Proposal -->
+          <article class="story-item reveal">
+            <div class="story-media">
+              <div class="story-img-wrap">
+                <img src="assets/images/story_proposal.jpg" alt="The Starlit Proposal" loading="lazy">
+              </div>
+            </div>
+            <div class="story-icon-badge" aria-hidden="true"><i class="fas fa-ring"></i></div>
+            <div class="story-content">
+              <div class="story-card">
+                <time datetime="2025-03-10" class="story-date">10 Mar 2025</time>
+                <h3 class="story-title">She Said Yes!</h3>
+                <p class="story-text">Under a starlit terrace surrounded by fairy lights and gentle classical melodies, Tanmoy got down on one knee. With happy tears and joyous smiles, Triyasa said yes!</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Timeline Item 3: Family Blessings & Rituals -->
+          <article class="story-item reveal">
+            <div class="story-media">
+              <div class="story-img-wrap">
+                <img src="assets/images/haldi.jpg" alt="Family Blessings and Traditional Rituals" loading="lazy">
+              </div>
+            </div>
+            <div class="story-icon-badge" aria-hidden="true"><i class="fas fa-gem"></i></div>
+            <div class="story-content">
+              <div class="story-card">
+                <time datetime="2025-11-28" class="story-date">28 Nov 2025</time>
+                <h3 class="story-title">Family Blessings</h3>
+                <p class="story-text">Both our families united in celebration to bless our upcoming journey with sacred rituals, joy, marigold garlands, and traditional festivities.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. WEDDING PROGRAM & RITUALS SECTION
+         - Detailed itinerary of all ceremonial events from Dec 10 to Dec 13, 2026
+         - Each event card contains date/time, venue address, description & maps link
+         ========================================================================== -->
+    <section id="events" class="events-section" aria-labelledby="events-title">
+      <div class="container">
+        <div class="script-title reveal" aria-hidden="true">Sacred Rituals</div>
+        <h2 id="events-title" class="section-title reveal">Our Wedding Program</h2>
+
+        <div class="events-grid">
+          
+          <!-- Event 1: Aashirbaad & Ring Ceremony -->
+          <article class="event-card reveal">
+            <div class="event-img-wrap">
+              <img src="assets/images/program_engagement.jpg" alt="Aashirbaad & Ring Ceremony" class="event-card-img" loading="lazy">
+              <div class="event-img-overlay" aria-hidden="true"></div>
+              <span class="event-tag"><i class="fas fa-sparkles" aria-hidden="true"></i> Sacred Blessing</span>
+              <div class="event-icon-badge" aria-hidden="true">
+                <i class="fas fa-ring"></i>
+              </div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-name">Aashirbaad & Ring Ceremony</h3>
+              <div class="event-time-badge"><i class="far fa-calendar-alt" aria-hidden="true"></i> 10.12.2026 &bull; 06:00 PM</div>
+              <div class="event-details">
+                <div class="event-venue"><i class="fas fa-map-pin" aria-hidden="true"></i> The Heritage Courtyard</div>
+                <div class="event-address">Ballygunge, Kolkata</div>
+                <p class="event-desc">An auspicious evening of elder blessings, exchanging sacred rings, and joyous family celebrations.</p>
+              </div>
+              <div class="event-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> View Map</a>
+                <a href="#rsvp" class="btn-sm btn-outline-sm"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 2: Haldi Ceremony -->
+          <article class="event-card reveal">
+            <div class="event-img-wrap">
+              <img src="assets/images/program_haldi.jpg" alt="Haldi Turmeric Ceremony" class="event-card-img" loading="lazy">
+              <div class="event-img-overlay" aria-hidden="true"></div>
+              <span class="event-tag"><i class="fas fa-sparkles" aria-hidden="true"></i> Turmeric Utsav</span>
+              <div class="event-icon-badge" aria-hidden="true">
+                <i class="fas fa-sun"></i>
+              </div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-name">Haldi Ceremony</h3>
+              <div class="event-time-badge"><i class="far fa-calendar-alt" aria-hidden="true"></i> 11.12.2026 &bull; 09:00 AM</div>
+              <div class="event-details">
+                <div class="event-venue"><i class="fas fa-map-pin" aria-hidden="true"></i> Royal Orchid Lawn</div>
+                <div class="event-address">Park Street, Kolkata</div>
+                <p class="event-desc">A vibrant ceremony of auspicious turmeric paste, marigolds, and playful water showers.</p>
+              </div>
+              <div class="event-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> View Map</a>
+                <a href="#rsvp" class="btn-sm btn-outline-sm"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 3: Sangeet & Mehendi -->
+          <article class="event-card reveal">
+            <div class="event-img-wrap">
+              <img src="assets/images/program_sangeet.jpg" alt="Sangeet & Mehendi Evening" class="event-card-img" loading="lazy">
+              <div class="event-img-overlay" aria-hidden="true"></div>
+              <span class="event-tag"><i class="fas fa-sparkles" aria-hidden="true"></i> Musical Soirée</span>
+              <div class="event-icon-badge" aria-hidden="true">
+                <i class="fas fa-music"></i>
+              </div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-name">Sangeet & Mehendi</h3>
+              <div class="event-time-badge"><i class="far fa-calendar-alt" aria-hidden="true"></i> 11.12.2026 &bull; 06:30 PM</div>
+              <div class="event-details">
+                <div class="event-venue"><i class="fas fa-map-pin" aria-hidden="true"></i> Crystal Ballroom</div>
+                <div class="event-address">E.M. Bypass, Kolkata</div>
+                <p class="event-desc">An evening filled with intricate Henna designs, rhythmic dhol beats, and dance performances.</p>
+              </div>
+              <div class="event-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> View Map</a>
+                <a href="#rsvp" class="btn-sm btn-outline-sm"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 4: Bor Jatri & Varmala -->
+          <article class="event-card reveal">
+            <div class="event-img-wrap">
+              <img src="assets/images/program_varmala.jpg" alt="Bor Jatri & Varmala Garland Exchange" class="event-card-img" loading="lazy">
+              <div class="event-img-overlay" aria-hidden="true"></div>
+              <span class="event-tag"><i class="fas fa-sparkles" aria-hidden="true"></i> Royal Baraat</span>
+              <div class="event-icon-badge" aria-hidden="true">
+                <i class="fas fa-drum"></i>
+              </div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-name">Bor Jatri & Varmala</h3>
+              <div class="event-time-badge"><i class="far fa-calendar-alt" aria-hidden="true"></i> 12.12.2026 &bull; 05:30 PM</div>
+              <div class="event-details">
+                <div class="event-venue"><i class="fas fa-map-pin" aria-hidden="true"></i> Imperial Courtyard</div>
+                <div class="event-address">Rajarhat, Kolkata</div>
+                <p class="event-desc">The grand groom's baraat procession with celebratory music, followed by the auspicious garland exchange.</p>
+              </div>
+              <div class="event-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> View Map</a>
+                <a href="#rsvp" class="btn-sm btn-outline-sm"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 5: Wedding Ceremony (Phere) -->
+          <article class="event-card reveal">
+            <div class="event-img-wrap">
+              <img src="assets/images/program_phere.jpg" alt="Wedding Phere and Vedic Rituals" class="event-card-img" loading="lazy">
+              <div class="event-img-overlay" aria-hidden="true"></div>
+              <span class="event-tag"><i class="fas fa-sparkles" aria-hidden="true"></i> Subho Bibaho</span>
+              <div class="event-icon-badge" aria-hidden="true">
+                <i class="fas fa-fire"></i>
+              </div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-name">Wedding Phere</h3>
+              <div class="event-time-badge"><i class="far fa-calendar-alt" aria-hidden="true"></i> 12.12.2026 &bull; 07:00 PM</div>
+              <div class="event-details">
+                <div class="event-venue"><i class="fas fa-map-pin" aria-hidden="true"></i> Imperial Palace Mandap</div>
+                <div class="event-address">Rajarhat, Kolkata</div>
+                <p class="event-desc">The sacred Vedic rituals around the holy fire, union of souls, Saat Paak, and lifelong vows.</p>
+              </div>
+              <div class="event-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> View Map</a>
+                <a href="#rsvp" class="btn-sm btn-outline-sm"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 6: Grand Reception Gala -->
+          <article class="event-card reveal">
+            <div class="event-img-wrap">
+              <img src="assets/images/program_reception.jpg" alt="Grand Wedding Reception Gala" class="event-card-img" loading="lazy">
+              <div class="event-img-overlay" aria-hidden="true"></div>
+              <span class="event-tag"><i class="fas fa-sparkles" aria-hidden="true"></i> Royal Gala</span>
+              <div class="event-icon-badge" aria-hidden="true">
+                <i class="fas fa-glass-cheers"></i>
+              </div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-name">Grand Reception</h3>
+              <div class="event-time-badge"><i class="far fa-calendar-alt" aria-hidden="true"></i> 13.12.2026 &bull; 07:30 PM</div>
+              <div class="event-details">
+                <div class="event-venue"><i class="fas fa-map-pin" aria-hidden="true"></i> The Grand Oberoi Lawn</div>
+                <div class="event-address">Esplanade, Kolkata</div>
+                <p class="event-desc">Join us for a royal banquet, toasts, live music performance, and fond memories.</p>
+              </div>
+              <div class="event-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> View Map</a>
+                <a href="#rsvp" class="btn-sm btn-outline-sm"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> RSVP</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. CHERISHED MOMENTS PHOTO GALLERY
+         - Interactive gallery with category filtering (All, Pre-Wedding, Ceremonies)
+         - Click on any item opens the full-resolution Lightbox Modal
+         ========================================================================== -->
+    <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="script-title reveal" aria-hidden="true">Sweet Memories</div>
+        <h2 id="gallery-title" class="section-title reveal">Our Cherished Gallery</h2>
+
+        <!-- Category Filter Controls -->
+        <div class="gallery-filter reveal" role="tablist" aria-label="Photo Gallery Filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Photos</button>
+          <button class="filter-btn" data-filter="prewedding" role="tab" aria-selected="false">Pre-Wedding</button>
+          <button class="filter-btn" data-filter="ceremonies" role="tab" aria-selected="false">Ceremonies</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid reveal" role="region" aria-label="Photo Gallery Grid">
+          
+          <!-- Photo Item 1 -->
+          <figure class="gallery-item" data-category="prewedding" tabindex="0" aria-label="View larger portrait of couple">
+            <img src="assets/images/hero_couple.jpg" alt="Indian Couple Portrait" loading="lazy">
+            <div class="gallery-overlay" aria-hidden="true">
+              <div class="gallery-icon"><i class="fas fa-expand"></i></div>
+            </div>
+          </figure>
+
+          <!-- Photo Item 2 -->
+          <figure class="gallery-item" data-category="prewedding" tabindex="0" aria-label="View romantic garden shoot photo">
+            <img src="assets/images/story_meet.jpg" alt="Romantic Garden Shoot" loading="lazy">
+            <div class="gallery-overlay" aria-hidden="true">
+              <div class="gallery-icon"><i class="fas fa-expand"></i></div>
+            </div>
+          </figure>
+
+          <!-- Photo Item 3 -->
+          <figure class="gallery-item" data-category="prewedding" tabindex="0" aria-label="View sunset proposal photo">
+            <img src="assets/images/story_proposal.jpg" alt="Sunset Proposal" loading="lazy">
+            <div class="gallery-overlay" aria-hidden="true">
+              <div class="gallery-icon"><i class="fas fa-expand"></i></div>
+            </div>
+          </figure>
+
+          <!-- Photo Item 4 -->
+          <figure class="gallery-item" data-category="ceremonies" tabindex="0" aria-label="View haldi celebration photo">
+            <img src="assets/images/haldi.jpg" alt="Haldi Celebration" loading="lazy">
+            <div class="gallery-overlay" aria-hidden="true">
+              <div class="gallery-icon"><i class="fas fa-expand"></i></div>
+            </div>
+          </figure>
+
+          <!-- Photo Item 5 -->
+          <figure class="gallery-item" data-category="ceremonies" tabindex="0" aria-label="View bride portrait photo">
+            <img src="assets/images/bride.jpg" alt="Bride Portrait" loading="lazy">
+            <div class="gallery-overlay" aria-hidden="true">
+              <div class="gallery-icon"><i class="fas fa-expand"></i></div>
+            </div>
+          </figure>
+
+          <!-- Photo Item 6 -->
+          <figure class="gallery-item" data-category="ceremonies" tabindex="0" aria-label="View groom portrait photo">
+            <img src="assets/images/groom.jpg" alt="Groom Portrait" loading="lazy">
+            <div class="gallery-overlay" aria-hidden="true">
+              <div class="gallery-icon"><i class="fas fa-expand"></i></div>
+            </div>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. LIGHTBOX MODAL (PHOTO ENLARGEMENT)
+         - Accessible modal triggered when clicking on any gallery image
+         - Dismissible by clicking close button, backdrop, or pressing Escape key
+         ========================================================================== -->
+    <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Enlarged photo view">
+      <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close Lightbox">&times;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged gallery photo display">
+    </div>
+
+    <!-- ==========================================================================
+         9. RSVP SECTION (ROYAL ORNAMENTAL WREATH CARD)
+         - Guest confirmation form with name, email/phone, headcount, event selection
+         - Generates personalized Digital Entry Pass with celebratory confetti upon submit
+         ========================================================================== -->
+    <section id="rsvp" class="rsvp-section" aria-labelledby="rsvp-title">
+      <div class="container">
+        
+        <div class="rsvp-wreath-card reveal">
+          <div class="script-title" aria-hidden="true">Join Our Celebration</div>
+          <h2 id="rsvp-title" class="section-title rsvp-title">RSVP Here</h2>
+          <p class="rsvp-subtext">Please kindly respond by December 1st, 2026 to confirm your presence.</p>
+
+          <form id="rsvp-form" class="rsvp-form" novalidate>
+            
+            <!-- Guest Full Name Input -->
+            <div class="form-group">
+              <label class="form-label" for="guest-name">Your Full Name <span aria-hidden="true" style="color: #d4af37;">*</span></label>
+              <input type="text" id="guest-name" class="form-control" placeholder="e.g. Ananya Roy" required autocomplete="name">
+            </div>
+
+            <!-- Guest Contact Info (Phone / Email) -->
+            <div class="form-group">
+              <label class="form-label" for="guest-email">Phone Number / Email <span aria-hidden="true" style="color: #d4af37;">*</span></label>
+              <input type="text" id="guest-email" class="form-control" placeholder="e.g. +91 98300 00000" required autocomplete="email">
+            </div>
+
+            <!-- Number of Attending Guests Select -->
+            <div class="form-group">
+              <label class="form-label" for="guest-count">Number of Attending Guests</label>
+              <select id="guest-count" class="form-control">
+                <option value="1 Guest">1 Person</option>
+                <option value="2 Guests" selected>2 Persons (+1 Partner)</option>
+                <option value="3 Guests">3 Persons</option>
+                <option value="Family (4+ Guests)">Family (4+ Persons)</option>
+              </select>
+            </div>
+
+            <!-- Event Attendance Checklist -->
+            <fieldset class="form-group">
+              <legend class="form-label">Events You Will Attend</legend>
+              <div class="events-checkboxes">
+                <label class="checkbox-label"><input type="checkbox" name="ceremonies" value="Aashirbaad" checked> Aashirbaad & Rings</label>
+                <label class="checkbox-label"><input type="checkbox" name="ceremonies" value="Haldi" checked> Haldi Ceremony</label>
+                <label class="checkbox-label"><input type="checkbox" name="ceremonies" value="Sangeet" checked> Sangeet & Mehendi</label>
+                <label class="checkbox-label"><input type="checkbox" name="ceremonies" value="Baraat" checked> Bor Jatri & Varmala</label>
+                <label class="checkbox-label"><input type="checkbox" name="ceremonies" value="Phere" checked> Wedding Phere</label>
+                <label class="checkbox-label"><input type="checkbox" name="ceremonies" value="Reception" checked> Grand Reception</label>
+              </div>
+            </fieldset>
+
+            <!-- Warm Message / Dietary Preference Input -->
+            <div class="form-group">
+              <label class="form-label" for="guest-message">Wishes / Dietary Preferences</label>
+              <textarea id="guest-message" class="form-control" rows="3" placeholder="Leave a warm message for Triyasa & Tanmoy..."></textarea>
+            </div>
+
+            <!-- Submit Confirmation Button -->
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-envelope-open-text" aria-hidden="true"></i> Confirm RSVP
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. DIGITAL INVITATION PASS MODAL
+         - Displayed upon successful RSVP form submission
+         - Contains dynamic guest details, entry QR code, and browser print action
+         ========================================================================== -->
+    <div id="pass-modal" class="pass-modal" role="dialog" aria-modal="true" aria-labelledby="pass-title">
+      <div class="digital-pass-card">
+        <button id="pass-close" class="pass-close" type="button" aria-label="Close Digital Pass">&times;</button>
+        <div class="script-title" aria-hidden="true">Thank You!</div>
+        <h3 id="pass-title" class="pass-header">RSVP Confirmed</h3>
+        <p class="pass-subtext">We look forward to welcoming you!</p>
+
+        <!-- Dynamic Guest Confirmation Voucher -->
+        <div class="pass-divider-box">
+          <div class="pass-guest-name" id="pass-name">Guest Name</div>
+          <div class="pass-guest-count" id="pass-guests">2 Persons</div>
+          <div class="pass-date">Date: Dec 10 - 13, 2026</div>
+        </div>
+
+        <!-- Symbolic QR Code for Event Verification -->
+        <div class="pass-qr" aria-label="Invitation QR Code">
+          <i class="fas fa-qrcode" aria-hidden="true"></i>
+        </div>
+        
+        <!-- Print / PDF Save Action -->
+        <button type="button" onclick="window.print()" class="btn-sm btn-primary-sm pass-print-btn">
+          <i class="fas fa-print" aria-hidden="true"></i> Save / Print Entry Pass
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       11. FOOTER SECTION
+       - Monogram, wedding date tagline, and copyright information
+       ========================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-logo">Triyasa & Tanmoy</div>
+      <div class="footer-text">Two Souls, One Sacred Journey &bull; December 12, 2026</div>
+
+      <div class="footer-copyright">
+        &copy; 2026 Triyasa & Tanmoy Wedding Invitation. Made with love.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       12. SCRIPTS & LOGIC
+       - petals.js : Interactive HTML5 Canvas falling petals animation
+       - music.js  : Web Audio API synthesizer for Indian Classical Shehnai melody
+       - app.js    : Countdown timer, mobile menu, scroll spy, lightbox & RSVP logic
+       ========================================================================== -->
+  <script src="js/petals.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
