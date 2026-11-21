@@ -1,215 +1,279 @@
-# 💍 Triyasa & Tanmoy - Royal Wedding Invitation & Reception Template
+# Triyasa & Tanmoy — Royal Indian Wedding Invitation & Reception
 
-A luxurious, responsive, and culturally rich Indian wedding invitation web application celebrating the sacred wedding reception of **Triyasa Das** & **Tanmoy Roy** in Kolkata, West Bengal.
+A responsive, single-page Indian wedding invitation and reception web template celebrating the sacred union of **Triyasa Das** & **Tanmoy Roy** in Kolkata, West Bengal.
 
-Crafted with a refined **pastel dusty blue, cream ivory, and royal gold** aesthetic, this template harmoniously blends timeless Indian wedding traditions (Vedic rituals, auspicious Sanskrit shlokas, and royal filigree arches) with state-of-the-art interactive web features, including a procedural falling petals canvas, an in-browser classical shehnai/flute synthesizer via the Web Audio API, an interactive RSVP suite with digital entry passes, and a multi-event ceremonial itinerary.
-
----
-
-## 🌟 Key Features
-
-### 🪷 1. Interactive Falling Petal Animation (`petals.js`)
-- Fullscreen HTML5 Canvas 2D particle simulation rendering organic rose petals (*Gulab*), auspicious marigold petals (*Genda*), jasmine cream, and pastel blue petals.
-- Driven by sinusoidal horizontal oscillation, realistic gravity, and continuous rotational drift.
-- Toggle button with icon animation located directly in the header navigation bar to enable or pause the petal animation anytime.
-
-### 🎶 2. Indian Classical Instrumental Synthesizer (`music.js`)
-- **Zero external audio file dependencies**: Synthesizes authentic instrumental tones in real time using the browser's native **Web Audio API** (`AudioContext`, `OscillatorNode`, and `GainNode`).
-- Tuned to the auspicious evening **Raag Yaman** (Kalyan scale: *Sa, Re, Ga, Teevra Ma, Pa, Dha, Ni*).
-- Acoustic modeling mimics the meditative tones of an Indian bamboo flute (*Bansuri*) and ceremonial *Shehnai*, complete with micro-tonal pitch inflections (*Meend*) and gentle ADSR attack/decay envelopes.
-- Navbar audio toggle button with animated pulsing sound waves and autoplay policy safety.
-
-### 👑 3. Royal Hero Section & Couple Monograms
-- Sacred Sanskrit invocation: `॥ श्री गणेशाय नमः ॥` (*Shree Ganeshayah Namah*) and auspicious crest: `शुभ विवाह` (*Shubho Bibaho*).
-- **3-Column Regal Architecture**:
-  - **The Bride Card**: Portrait of Triyasa Das with royal corner filigree SVG art, parentage details, creative trait tags, and social profiles.
-  - **Center Couple Crest**: Circular halo framed couple portrait, wedding date stamp, Kolkata venue mark, and quick-action buttons.
-  - **The Groom Card**: Portrait of Tanmoy Roy with matching arched filigree details, lineage, adventurous spirit bio, and blessing button.
-- Subtle rotating Sacred Mandala watermark animating smoothly in the background.
-
-### ⏳ 4. Live Real-Time Countdown Timer
-- Dynamic countdown targeting the wedding moment (**December 12, 2026 at 18:00:00 IST**).
-- Computes and updates **Days**, **Hours**, **Minutes**, and **Seconds** every second with zero layout shifts.
-
-### 📖 5. "Our Sweet Love Story" Timeline
-- Alternating chronological milestone timeline with curved arched photo frames and floral badges:
-  - **First Time We Met** (Feb 15, 2022 – A warm cup of tea in Kolkata)
-  - **She Said Yes!** (Mar 10, 2025 – A starlit terrace proposal)
-  - **Family Blessings** (Nov 28, 2025 – Traditional rituals & marigold festivities)
-
-### 🪔 6. Multi-Event Sacred Program & Rituals Itinerary
-Comprehensive card grid covering the complete 4-day wedding celebration (December 10 – 13, 2026):
-1. **Aashirbaad & Ring Ceremony** – *The Heritage Courtyard, Ballygunge* (Dec 10, 6:00 PM)
-2. **Haldi Ceremony (Turmeric Utsav)** – *Royal Orchid Lawn, Park Street* (Dec 11, 9:00 AM)
-3. **Sangeet & Mehendi Soirée** – *Crystal Ballroom, E.M. Bypass* (Dec 11, 6:30 PM)
-4. **Bor Jatri & Varmala (Royal Baraat)** – *Imperial Courtyard, Rajarhat* (Dec 12, 5:30 PM)
-5. **Wedding Phere (Sacred Saat Paak & Vedic Vows)** – *Imperial Palace Mandap, Rajarhat* (Dec 12, 7:00 PM)
-6. **Grand Reception Gala** – *The Grand Oberoi Lawn, Esplanade* (Dec 13, 7:30 PM)
-- Each event card features badge categories, venue addresses, direct **Google Maps** exploration links, and one-click RSVP shortcuts.
-
-### 🖼️ 7. Cherished Moments Gallery & Accessible Lightbox
-- Categorized photo grid with tab-based filtering:
-  - **All Photos**
-  - **Pre-Wedding**
-  - **Ceremonies**
-- Built-in full-viewport **Lightbox Modal** with smooth fade transitions, background scroll locking, close button, backdrop click dismissal, and `Escape` / `Enter` keyboard support.
-
-### ✉️ 8. Royal RSVP Suite & Digital Entry Pass
-- Interactive guest confirmation form capturing:
-  - Full Name
-  - Contact Number / Email
-  - Attending Guest Count (1, 2, 3, or Family 4+)
-  - Multi-event attendance checkboxes
-  - Personal blessing message & dietary requirements
-- **Digital Invitation Pass Modal**:
-  - Immediately generates an elegant verification ticket displaying the guest's name, attendee count, event dates, and symbolic QR code.
-  - Integrated **Save / Print Entry Pass** button (`window.print()`) styled with print-specific CSS rules.
-- **Celebratory Confetti Explosion**: 100-particle radial burst animation featuring gold, pastel blue, and white confetti across the screen upon RSVP confirmation.
-
-### 📱 9. Modern Responsive Navigation & UX
-- Fixed header navbar with glassmorphism blur (`backdrop-filter`).
-- **ScrollSpy** automatic navigation link highlighting as the user scrolls.
-- Smooth sliding mobile navigation drawer with backdrop click-outside auto-close.
-- Intersection Observer-based **Scroll Reveal Animations** (`.reveal`) that trigger graceful slide-up animations as cards enter the viewport.
+Built with **pure vanilla HTML5, CSS3, and ES6+ JavaScript** (zero build tools, zero frameworks, zero audio assets), the template pairs a refined **pastel dusty blue, cream ivory, and royal gold** aesthetic with cultural Indian wedding motifs and rich client-side interactivity—including a procedural falling flower petals canvas, an in-browser Web Audio API Raag Yaman synthesizer, a filterable photo gallery with a swipeable lightbox, and an RSVP suite that generates a printable digital entry pass with confetti.
 
 ---
 
-## 📁 Project Structure
+## Table of Contents
+
+- [Key Features](#key-features)
+- [Project Structure](#project-structure)
+- [JavaScript Modules & Architecture](#javascript-modules--architecture)
+- [Design System & Typography](#design-system--typography)
+- [Responsive Breakpoints](#responsive-breakpoints)
+- [Getting Started](#getting-started)
+- [Customization Guide](#customization-guide)
+- [Deployment Notes](#deployment-notes)
+- [Browser Support & Accessibility](#browser-support--accessibility)
+- [License & Credits](#license--credits)
+
+---
+
+## Key Features
+
+### 1. Interactive Falling Floral Petals (`assets/js/petals.js`)
+- Fullscreen HTML5 Canvas 2D overlay (`#petals-canvas`) rendering 35 organic petals using dual cubic Bézier curves.
+- Styled in four traditional Indian wedding floral tones: **Rose Pink (*Gulab*)**, **Marigold Orange (*Genda*)**, **Theme Pastel Blue**, and **Jasmine Cream**.
+- Physics-driven motion featuring vertical gravity, sinusoidal horizontal sway, continuous rotation, and automatic viewport resize handling.
+- Includes a navbar toggle button (`#petal-toggle`) to pause or resume the animation at any time.
+
+### 2. Indian Classical Instrumental Synthesizer (`assets/js/music.js`)
+- **Zero external audio dependencies**: Generates melodic tones in real time using the browser's native **Web Audio API** (`AudioContext`, `OscillatorNode`, `GainNode`).
+- Tuned to the auspicious evening **Raag Yaman (Kalyan)** scale (*Sa, Re, Ga, Teevra Ma, Pa, Dha, Ni, Taar Sa, Taar Re, Taar Ga* — `261.63 Hz` to `659.25 Hz`).
+- Pure sine-wave synthesis modeled after an Indian bamboo flute (*Bansuri*) and ceremonial *Shehnai*, featuring micro-tonal pitch inflections (*Meend*) and smooth ADSR gain envelopes.
+- Loops a 16-note Raag Yaman phrase at 900ms intervals, lazily initializes `AudioContext` on user click to respect browser autoplay policies, and updates the navbar audio button (`#audio-toggle`) with active state styling.
+
+### 3. Royal Hero Section & Couple Profiles
+- Opens with the auspicious Sanskrit invocation `॥ श्री गणेशाय नमः ॥` (*Shree Ganeshayah Namah*) and `शुभ विवाह` (*Shubho Bibaho*) crest over a subtle rotating sacred mandala SVG watermark.
+- **3-Column Regal Layout**:
+  - **The Bride Card**: Arched portrait of Triyasa Das framed with royal gold corner filigree SVGs, parentage details, creative trait badge, quote, Instagram pill, and blessing anchor.
+  - **Central Couple Emblem**: Circular halo-framed couple portrait with wedding date (`12 . 12 . 2026`), Kolkata location banner, and primary CTAs (**RSVP & Bless** and **Wedding Program**).
+  - **The Groom Card**: Matching arched filigree card for Tanmoy Roy with parentage details, trait badge, quote, social pill, and blessing anchor.
+
+### 4. Live Real-Time Countdown Timer
+- Dynamically counts down to **December 12, 2026 at 18:00:00** in real time, updating every `1,000 ms`.
+- Displays zero-padded **Days** (3 digits), **Hours**, **Minutes**, and **Seconds**, and gracefully clamps to `000 / 00 / 00 / 00` once the wedding time arrives.
+
+### 5. "Our Sweet Love Story" Timeline
+- Alternating desktop timeline (collapsing to a clean left-aligned timeline on mobile) with arched image frames and central icon badges:
+  1. **First Time We Met** — *15 Feb 2022* (Kolkata)
+  2. **She Said Yes!** — *10 Mar 2025* (Starlit terrace proposal)
+  3. **Family Blessings** — *28 Nov 2025* (Traditional rituals & festivities)
+
+### 6. Multi-Event Wedding Program & Rituals Itinerary
+A 6-card ceremonial schedule spanning December 10–13, 2026:
+
+| # | Ceremony | Tag | Date & Time | Venue (Kolkata) |
+| :-: | :--- | :--- | :--- | :--- |
+| 1 | **Aashirbaad & Ring Ceremony** | Sacred Blessing | 10.12.2026 · 06:00 PM | The Heritage Courtyard, Ballygunge |
+| 2 | **Haldi Ceremony** | Turmeric Utsav | 11.12.2026 · 09:00 AM | Royal Orchid Lawn, Park Street |
+| 3 | **Sangeet & Mehendi** | Musical Soirée | 11.12.2026 · 06:30 PM | Crystal Ballroom, E.M. Bypass |
+| 4 | **Bor Jatri & Varmala** | Royal Baraat | 12.12.2026 · 05:30 PM | Imperial Courtyard, Rajarhat |
+| 5 | **Wedding Phere** | Subho Bibaho | 12.12.2026 · 07:00 PM | Imperial Palace Mandap, Rajarhat |
+| 6 | **Grand Reception** | Royal Gala | 13.12.2026 · 07:30 PM | The Grand Oberoi Lawn, Esplanade |
+
+Each card includes a featured photo, ceremonial icon badge, description, **View Map** link, and **RSVP** shortcut.
+
+### 7. Filterable Photo Gallery & Accessible Lightbox Modal
+- **Category Filtering**: Smooth tab-based filtering across **All Photos**, **Pre-Wedding**, and **Ceremonies** with ARIA `role="tablist"` and `aria-selected` state management.
+- **Full-Featured Lightbox (`#lightbox-modal`)**:
+  - **Filter-Aware Carousel**: Cycles only through the photos visible under the active category filter.
+  - **Caption & Live Counter**: Displays image `alt` text as caption and current position (e.g., `1 / 6`) inside an `aria-live="polite"` counter.
+  - **Smooth Transitions**: Cross-fade switching animation (`.is-switching`) when navigating between photos.
+  - **Multi-Input Navigation**: Supports Previous/Next buttons, keyboard shortcuts (`Enter`/`Space` to open, `ArrowLeft`/`ArrowRight` to navigate, `Escape` to close), mobile touch swipe gestures (`> 50px` horizontal threshold), backdrop click dismissal, and background scroll locking.
+
+### 8. Royal Wreath RSVP Suite, Digital Entry Pass & Confetti
+- **RSVP Form (`#rsvp-form`)**: Collects guest full name, phone/email, attending guest count (`1 Person`, `2 Persons`, `3 Persons`, `Family (4+)`), a 6-ceremony attendance checklist, and personal wishes/dietary preferences.
+- **Digital Invitation Pass Modal (`#pass-modal`)**: Immediately populates a personalized entry voucher with the guest's name (defaults to `Honored Guest` if blank), guest count, event dates (`Dec 10 - 13, 2026`), symbolic QR code icon, and a **Save / Print Entry Pass** button (`window.print()`).
+- **Celebratory Confetti Burst**: Spawns 100 multi-colored radial confetti particles (`#8faed9`, `#d4af37`, `#ffffff`, `#e2eafd`, `#f7c59f`) with velocity, gravity, and opacity fade-out on RSVP confirmation.
+
+### 9. Glassmorphic Navigation, ScrollSpy & Scroll Reveals
+- Fixed glassmorphism navbar (`backdrop-filter: blur(12px)`) that compacts smoothly on scroll (`.scrolled`).
+- **ScrollSpy** automatically highlights the active section link in the navbar, including bottom-of-page handling for the RSVP section.
+- Responsive mobile drawer with animated toggle icon, click-outside dismissal, and automatic reset when resizing past `768px`.
+- `IntersectionObserver`-powered `.reveal` scroll-entrance animations with a graceful fallback for older browsers.
+
+---
+
+## Project Structure
 
 ```plaintext
 Triyasa and Tomoy Reception/
 │
-├── index.html              # Main HTML5 semantic document & all section layouts
+├── index.html                      # Semantic HTML5 document, SEO/OG metadata & all page sections
+├── LICENSE.txt                     # WebGraphiz Regular License notice
+├── README.md                       # Project documentation
 │
-├── css/
-│   └── style.css           # Complete design system, CSS variables, typography,
-│                           # glassmorphism, responsive media queries & print styles
+├── favicon.ico                     # Legacy browser favicon
+├── favicon.svg                     # Scalable vector favicon
+├── favicon-16x16.png               # 16x16 PNG favicon
+├── favicon-32x32.png               # 32x32 PNG favicon
+├── apple-touch-icon.png            # 180x180 Apple Touch icon
+├── android-chrome-192x192.png      # 192x192 Android Chrome icon
+├── android-chrome-512x512.png      # 512x512 Android Chrome icon
 │
-├── js/
-│   ├── app.js              # Countdown timer, ScrollSpy, mobile drawer, gallery filter,
-│   │                       # lightbox modal, RSVP processing & confetti engine
-│   ├── music.js            # Native Web Audio API Raag Yaman synthesizer & audio controls
-│   └── petals.js           # HTML5 Canvas 2D falling rose & marigold petals physics engine
-│
-├── assets/
-│   └── images/             # Visual photography assets
-│       ├── hero_couple.jpg         # Primary couple portrait
-│       ├── bride.jpg               # Bride profile portrait (Triyasa Das)
-│       ├── groom.jpg               # Groom profile portrait (Tanmoy Roy)
-│       ├── story_meet.jpg          # First meet milestone photo
-│       ├── story_proposal.jpg      # Proposal milestone photo
-│       ├── haldi.jpg               # Haldi celebration photo
-│       ├── program_engagement.jpg  # Aashirbaad & Ring event card
-│       ├── program_haldi.jpg       # Haldi ceremony event card
-│       ├── program_sangeet.jpg     # Sangeet & Mehendi event card
-│       ├── program_varmala.jpg     # Bor Jatri & Varmala event card
-│       ├── program_phere.jpg       # Wedding Phere Vedic ritual event card
-│       └── program_reception.jpg   # Grand Reception Gala event card
-│
-└── README.md               # Project documentation and customization guide
+└── assets/
+    ├── css/
+    │   └── style.css               # Complete design system, tokens, animations & media queries
+    │
+    ├── js/
+    │   ├── app.js                  # Countdown, ScrollSpy, mobile menu, reveal observer,
+    │   │                           # gallery filter, lightbox carousel, RSVP & confetti engine
+    │   ├── music.js                # Web Audio API Raag Yaman synthesizer & navbar toggle
+    │   └── petals.js               # HTML5 Canvas 2D falling floral petals physics engine
+    │
+    └── images/
+        ├── hero_couple.jpg         # Central hero portrait & Open Graph preview image
+        ├── bride.jpg               # Bride profile portrait (Triyasa Das)
+        ├── groom.jpg               # Groom profile portrait (Tanmoy Roy)
+        ├── story_meet.jpg          # Love story: First meet milestone
+        ├── story_proposal.jpg      # Love story: Proposal milestone
+        ├── haldi.jpg               # Love story & gallery: Family blessings / Haldi
+        ├── program_engagement.jpg  # Event card: Aashirbaad & Ring Ceremony
+        ├── program_haldi.jpg       # Event card: Haldi Ceremony
+        ├── program_sangeet.jpg     # Event card: Sangeet & Mehendi
+        ├── program_varmala.jpg     # Event card: Bor Jatri & Varmala
+        ├── program_phere.jpg       # Event card: Wedding Phere
+        └── program_reception.jpg   # Event card: Grand Reception
 ```
 
 ---
 
-## 🎨 Design System & Color Palette
+## JavaScript Modules & Architecture
 
-The project utilizes CSS custom properties (`:root`) for easy theme customization:
+All scripts are loaded at the bottom of [index.html](index.html) in strict mode with no external JS libraries required:
 
-| Token | Value | Visual Purpose |
+| Script | Responsibility | Key DOM Targets / Hooks |
 | :--- | :--- | :--- |
-| `--bg-main` | `#f0f4fa` | Soft pastel blue-gray background canvas |
-| `--bg-card` | `#ffffff` | Clean ivory white card surface |
-| `--primary-blue` | `#8faed9` | Signature pastel dusty blue accent |
-| `--primary-blue-dark` | `#6486be` | Deep dusty blue for active states & crests |
-| `--primary-blue-light` | `#d8e5f7` | Soft tint for pills, badges & borders |
-| `--gold-accent` | `#d4af37` | Royal Indian metallic gold for crowns & filigrees |
-| `--text-dark` | `#202b3d` | High-contrast deep slate navy typography |
-| `--text-muted` | `#62728d` | Subtle slate gray for secondary labels & dates |
-
-### Typography Hierarchy
-- **Royal Headings**: `'Cinzel', serif` (Google Fonts) – Imperial Roman lettering for couple names, section titles, and badges.
-- **Calligraphic Script**: `'Great Vibes', cursive` (Google Fonts) – Elegant handwritten flourish for intros and subtitles.
-- **Literary Serif**: `'Cormorant Garamond', serif` (Google Fonts) – Refined traditional serif for quotes, vows, and parentage lines.
-- **UI & Body**: `'Plus Jakarta Sans', sans-serif` (Google Fonts) – Crisp, readable geometric sans for descriptions and forms.
-- **Iconography**: `Font Awesome 6 (Free CDN)` – Vector icons for ceremonies, social media, and navigation actions.
+| [assets/js/petals.js](assets/js/petals.js) | Procedural Canvas 2D falling petal simulation (`Petal` class, `requestAnimationFrame` loop) | `#petals-canvas`, `#petal-toggle` |
+| [assets/js/music.js](assets/js/music.js) | Native Web Audio API synthesizer playing Raag Yaman phrases with *Meend* pitch ramp | `#audio-toggle`, `#audio-icon` |
+| [assets/js/app.js](assets/js/app.js) | Countdown timer, sticky navbar, ScrollSpy, mobile drawer, `IntersectionObserver` reveals, gallery filtering, keyboard/swipe lightbox, RSVP pass modal, and DOM confetti burst | `#days`, `#hours`, `#mins`, `#secs`, `.navbar`, `#mobile-toggle`, `.reveal`, `.filter-btn`, `.gallery-item`, `#lightbox-modal`, `#rsvp-form`, `#pass-modal` |
 
 ---
 
-## 🚀 Getting Started
+## Design System & Typography
 
-This project is built purely with **vanilla web standards** (HTML5, CSS3, ES6+ JavaScript) and has **zero build steps, zero npm packages, and zero runtime dependencies**.
+Theme tokens are centralized under `:root` in [assets/css/style.css](assets/css/style.css):
 
-### Quick Preview
-1. Clone or download this repository onto your computer.
-2. Double-click [index.html](file:///c:/Users/tridi/Works/Geekboots/templates/Triyasa%20and%20Tomoy%20Reception/index.html) to open it directly in any modern browser (Chrome, Edge, Safari, Firefox).
+### Color Palette & Elevation
 
-### Local Development Server (Recommended)
-Running through a local web server ensures optimal asset loading, canvas performance, and Web Audio API permissions:
+| CSS Variable | Value | Usage |
+| :--- | :--- | :--- |
+| `--bg-main` | `#f0f4fa` | Soft pastel blue-gray page canvas |
+| `--bg-card` | `#ffffff` | Crisp white card surfaces |
+| `--primary-blue` | `#8faed9` | Signature pastel dusty blue accent |
+| `--primary-blue-dark` | `#6486be` | Deep dusty blue for active states, crests & links |
+| `--primary-blue-light` | `#d8e5f7` | Soft tint for borders, pills & icon badges |
+| `--gold-accent` | `#d4af37` | Royal metallic gold for crowns, borders & SVG filigrees |
+| `--text-dark` | `#202b3d` | High-contrast deep slate navy body & heading text |
+| `--text-muted` | `#62728d` | Secondary labels, dates & metadata |
+| `--shadow-soft` | `0 10px 35px rgba(118, 147, 191, 0.15)` | Default card elevation |
+| `--shadow-hover` | `0 15px 45px rgba(100, 134, 190, 0.25)` | Interactive hover elevation |
 
-#### Option A: Python Built-in Server
+### Typography & Icons
+- **Royal Headings** (`--font-heading`): `'Cinzel', serif` (400, 600, 700, 800)
+- **Calligraphic Script** (`--font-script`): `'Great Vibes', cursive`
+- **Literary Serif** (`--font-serif`): `'Cormorant Garamond', serif` (regular & italic)
+- **UI & Body** (`--font-sans`): `'Plus Jakarta Sans', sans-serif` (300–700)
+- **Iconography**: Font Awesome `6.4.0` via CDNJS with Subresource Integrity (SRI)
+
+---
+
+## Responsive Breakpoints
+
+[assets/css/style.css](assets/css/style.css) adapts across six breakpoints alongside fluid `clamp()` typography:
+
+| Breakpoint | Key Layout Adaptations |
+| :--- | :--- |
+| `<= 1100px` | Adjusts hero grid spacing and desktop card proportions |
+| `<= 992px` | Reflows multi-column hero and program grids for tablets |
+| `<= 768px` | Activates slide-down mobile navigation drawer, left-aligned story timeline, 2-column gallery grid, compact lightbox controls, and refined RSVP wreath frame |
+| `<= 600px` | Switches wedding program grid and RSVP ceremony checkboxes to single-column; scales central circular portrait |
+| `<= 480px` | Stacks hero CTA buttons full-width, reduces arched portrait and countdown card dimensions, tightens mobile spacing |
+| `<= 360px` | Ultra-compact sizing for small phones, 1-column gallery grid (`220px` tile height) |
+
+---
+
+## Getting Started
+
+Because this project uses only standard web technologies, there are **no installation or build steps**.
+
+### Option 1: Direct Browser Open
+Open [index.html](index.html) directly in any modern browser (Chrome, Edge, Safari, or Firefox).
+
+### Option 2: Local Development Server (Recommended)
+Serving locally ensures consistent asset paths, clean relative URLs, and reliable Web Audio API behavior:
+
+**Python 3:**
 ```bash
-# If using Python 3
 python -m http.server 8000
 ```
-Then visit: `http://localhost:8000`
+Open `http://localhost:8000` in your browser.
 
-#### Option B: VS Code Live Server
-1. Open the project folder in VS Code.
-2. Right-click on `index.html` and select **"Open with Live Server"**.
-
-#### Option C: Node.js `npx serve`
+**Node.js (`serve`):**
 ```bash
 npx serve .
 ```
 
+**VS Code Live Server:**
+1. Open the project folder in VS Code.
+2. Right-click [index.html](index.html) and select **Open with Live Server**.
+
 ---
 
-## 🛠️ Customization Guide
+## Customization Guide
 
-### 1. Updating Couple Details & Wedding Date
-- Open [index.html](file:///c:/Users/tridi/Works/Geekboots/templates/Triyasa%20and%20Tomoy%20Reception/index.html):
-  - Modify the `<title>` and `<meta>` description tags around lines 12–29.
-  - Edit the couple's names, parents' names, quotes, and social links in the Hero section (lines 135–312).
-- Open [js/app.js](file:///c:/Users/tridi/Works/Geekboots/templates/Triyasa%20and%20Tomoy%20Reception/js/app.js):
-  - Change the countdown target date on line 27:
-    ```javascript
-    const weddingDate = new Date('December 12, 2026 18:00:00').getTime();
-    ```
+### 1. Couple Information, SEO & Social Sharing
+- Open [index.html](index.html):
+  - Update `<title>`, `<meta name="description">`, Open Graph (`og:*`), and Twitter Card (`twitter:*`) tags at lines **12–29**.
+  - Update the couple names, parents' names, bios, quotes, and Instagram handles in the Hero section (lines **124–318**).
+  - Update the footer monogram and copyright line (lines **796–805**).
 
-### 2. Modifying Ceremonial Events & Maps Links
-- In [index.html](file:///c:/Users/tridi/Works/Geekboots/templates/Triyasa%20and%20Tomoy%20Reception/index.html), scroll to `<section id="events">` (lines 425–588).
-- Replace venue names, dates, times, and paste specific Google Maps place links into `<a href="https://maps.google.com?...">`.
+### 2. Wedding Countdown Date
+- Open [assets/js/app.js](assets/js/app.js) and edit line **27**:
+  ```javascript
+  const weddingDate = new Date('December 12, 2026 18:00:00').getTime();
+  ```
 
-### 3. Replacing Photos
-- Place your high-resolution images in the `assets/images/` folder keeping identical file names, or update the `src="..."` paths in [index.html](file:///c:/Users/tridi/Works/Geekboots/templates/Triyasa%20and%20Tomoy%20Reception/index.html).
+### 3. Love Story & Wedding Program
+- **Story Timeline**: Edit the `.story-item` blocks in [index.html](index.html) (lines **377–425**).
+- **Ceremonial Events**: Edit the `.event-card` blocks in `<section id="events">` (lines **444–591**), and replace the placeholder `https://maps.google.com` links with exact Google Maps venue URLs.
+
+### 4. Replacing Photography Assets
+- Replace images inside `assets/images/` using the same filenames, or update the `src` attributes in [index.html](index.html).
 - Recommended aspect ratios:
-  - **Portraits (Bride & Groom)**: `3:4` or `4:5` vertical ratio.
-  - **Hero Center & Gallery**: `1:1` square or `4:3` ratio.
-  - **Program Cards**: `16:9` horizontal ratio.
+  - **Bride & Groom Portraits (`bride.jpg`, `groom.jpg`)**: `3:4` or `4:5` vertical
+  - **Hero Center & Gallery (`hero_couple.jpg`, `story_*.jpg`, `haldi.jpg`)**: `1:1` square or `4:3`
+  - **Program Cards (`program_*.jpg`)**: `16:9` landscape
+- To add new gallery photos, duplicate a `<figure class="gallery-item" data-category="prewedding|ceremonies">` block in [index.html](index.html) (lines **618–663**); the filter tabs and lightbox counter automatically include them.
 
-### 4. Customizing Theme Colors
-- Open [css/style.css](file:///c:/Users/tridi/Works/Geekboots/templates/Triyasa%20and%20Tomoy%20Reception/css/style.css) and edit the values under `:root` (lines 29–52).
-- You can instantly switch from dusty blue to pastel emerald, blush rose, lavender, or royal burgundy by tweaking `--primary-blue`, `--primary-blue-dark`, and `--primary-blue-light`.
+### 5. Theme Colors & Fonts
+- Edit the CSS custom properties in `:root` at the top of [assets/css/style.css](assets/css/style.css) (lines **29–52**) to re-theme the palette (e.g., blush rose, emerald sage, lavender, or royal maroon) without modifying component styles.
 
----
+### 6. Petals & Synthesizer Tuning
+- **Petals**: Adjust `petalCount` (default `35`) or `petalColors` in [assets/js/petals.js](assets/js/petals.js) (lines **45–50** and **119**).
+- **Music**: Modify the `notes` frequencies, `melodySequence` array, or `900` ms tempo interval in [assets/js/music.js](assets/js/music.js) (lines **36–47** and **110–118**).
 
-## 🌐 Browser Support & Performance
-
-- **Chrome / Edge / Chromium**: Full support (Web Audio API, Canvas 2D, Backdrop Filter, Print CSS).
-- **Safari (macOS & iOS)**: Full support with `-webkit-` vendor prefixes included.
-- **Firefox**: Full support.
-- **Mobile Browsers**: Fully optimized touch targets, mobile navigation drawer, responsive typography (`clamp()` units), and fast image lazy-loading (`loading="lazy"`).
-
----
-
-## 📄 License & Credits
-
-- **Aesthetic Direction & Template Design**: Created for the wedding celebration of Triyasa & Tanmoy.
-- **Icons**: [Font Awesome Free](https://fontawesome.com/)
-- **Fonts**: [Google Fonts](https://fonts.google.com/) (`Cinzel`, `Cormorant Garamond`, `Great Vibes`, `Plus Jakarta Sans`)
-- **Audio & Animations**: 100% bespoke procedural code using HTML5 Canvas and native Web Audio API.
+### 7. Connecting RSVP to a Backend (Optional)
+- Currently, RSVP submission is handled entirely client-side in [assets/js/app.js](assets/js/app.js) (lines **473–500**): it reads the guest name and count, opens `#pass-modal`, resets the form, and triggers `triggerConfetti()`.
+- To persist responses, add a `fetch()` call inside the `rsvpForm` `submit` listener to post the form fields (name, contact, guest count, checked `ceremonies` checkboxes, and message) to your preferred service such as Formspree, EmailJS, Google Apps Script, or a custom REST endpoint.
 
 ---
 
-*Made with love & blessings for Triyasa & Tanmoy. Shubho Bibaho!* 🕊️✨
+## Deployment Notes
 
+This template is 100% static and can be deployed directly to **GitHub Pages**, **Netlify**, **Vercel**, **Cloudflare Pages**, or any standard web host:
+1. Upload the entire project directory preserving the `assets/` folder structure and root favicon files.
+2. Update `og:image` and `twitter:image` in [index.html](index.html) (lines **23** and **29**) from relative paths (`assets/images/hero_couple.jpg`) to full `https://...` URLs so WhatsApp, Facebook, and X/Twitter display the preview card image reliably.
+
+---
+
+## Browser Support & Accessibility
+
+- **Browsers**: Full support in modern Chrome, Edge, Firefox, and Safari (desktop & mobile), including `-webkit-` prefixes for `backdrop-filter` and `webkitAudioContext` fallback.
+- **Accessibility**:
+  - Semantic landmarks (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+  - ARIA attributes for navigation (`aria-expanded`, `aria-controls`), gallery tabs (`role="tablist"`, `role="tab"`, `aria-selected`), and modals (`role="dialog"`, `aria-modal="true"`, `aria-live="polite"`).
+  - Full keyboard navigation for gallery items and the lightbox viewer.
+  - Native image `loading="lazy"` on below-the-fold imagery and `loading="eager"` on the primary hero portrait.
+
+---
+
+## License & Credits
+
+- **License**: Protected by **WebGraphiz's Regular License**. See [LICENSE.txt](LICENSE.txt) and the [official WebGraphiz license page](https://webgraphiz.com/license) for full terms.
+- **Fonts**: [Google Fonts](https://fonts.google.com/) (`Cinzel`, `Cormorant Garamond`, `Great Vibes`, `Plus Jakarta Sans`).
+- **Icons**: [Font Awesome 6.4.0 Free](https://fontawesome.com/).
+- **Audio & Visual FX**: Custom procedural implementations using native HTML5 Canvas 2D and Web Audio API.

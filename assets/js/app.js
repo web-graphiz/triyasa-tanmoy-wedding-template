@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Handles:
    *   - Switching photo categories ('all', 'prewedding', 'ceremonies')
    *   - Fullscreen Lightbox viewing upon photo selection
+   *   - Previous/Next navigation (buttons, keyboard arrows, and touch swipe)
    *   - Lightbox modal dismissal via close button, backdrop click, or Escape key
    * ============================================================================
    */
@@ -258,6 +259,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxModal = document.getElementById('lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+
+  let activeFilter = 'all';
+  let currentLightboxIndex = 0;
+  let switchTimer = null;
+
+  /**
+   * Returns gallery items currently visible under the active category filter.
+   * @returns {HTMLElement[]}
+   */
+  function getVisibleGalleryItems() {
+    return Array.from(galleryItems).filter(
+      (item) => activeFilter === 'all' || item.dataset.category === activeFilter
+    );
+  }
 
   // Filter tab interactions
   filterBtns.forEach((btn) => {
@@ -270,11 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
 
-      const filter = btn.dataset.filter;
+      activeFilter = btn.dataset.filter || 'all';
 
       // Filter gallery items by category
       galleryItems.forEach((item) => {
-        if (filter === 'all' || item.dataset.category === filter) {
+        if (activeFilter === 'all' || item.dataset.category === activeFilter) {
           item.style.display = 'block';
           setTimeout(() => (item.style.opacity = '1'), 50);
         } else {
@@ -286,12 +305,59 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
-   * Opens the lightbox modal with the chosen photo.
-   * @param {string} src - The image URL
+   * Updates the lightbox image, caption, counter, and nav button visibility.
+   * @param {number} index - Target index within the visible gallery items
+   * @param {boolean} animate - Whether to play the image switch transition
    */
-  function openLightbox(src) {
+  function renderLightboxImage(index, animate = true) {
+    if (!lightboxImg) return;
+    const visibleItems = getVisibleGalleryItems();
+    if (visibleItems.length === 0) return;
+
+    currentLightboxIndex = (index + visibleItems.length) % visibleItems.length;
+    const img = visibleItems[currentLightboxIndex].querySelector('img');
+    if (!img) return;
+
+    const applyImage = () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'Enlarged gallery photo display';
+      if (lightboxCaption) {
+        lightboxCaption.textContent = img.alt || '';
+      }
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${visibleItems.length}`;
+      }
+      const hideNav = visibleItems.length <= 1;
+      if (lightboxPrev) lightboxPrev.hidden = hideNav;
+      if (lightboxNext) lightboxNext.hidden = hideNav;
+    };
+
+    if (switchTimer) {
+      clearTimeout(switchTimer);
+      switchTimer = null;
+    }
+
+    if (animate) {
+      lightboxImg.classList.add('is-switching');
+      switchTimer = setTimeout(() => {
+        applyImage();
+        lightboxImg.classList.remove('is-switching');
+      }, 150);
+    } else {
+      lightboxImg.classList.remove('is-switching');
+      applyImage();
+    }
+  }
+
+  /**
+   * Opens the lightbox modal for the selected gallery item.
+   * @param {HTMLElement} item - The clicked or activated .gallery-item
+   */
+  function openLightbox(item) {
     if (!lightboxModal || !lightboxImg) return;
-    lightboxImg.src = src;
+    const visibleItems = getVisibleGalleryItems();
+    const index = visibleItems.indexOf(item);
+    renderLightboxImage(index >= 0 ? index : 0, false);
     lightboxModal.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
   }
@@ -305,40 +371,86 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  // Open lightbox on gallery item click or Enter keypress
+  /**
+   * Navigates to the previous or next photo in the active gallery set.
+   * @param {number} step - -1 for previous, +1 for next
+   */
+  function navigateLightbox(step) {
+    if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
+    renderLightboxImage(currentLightboxIndex + step, true);
+  }
+
+  // Open lightbox on gallery item click or Enter/Space keypress
   galleryItems.forEach((item) => {
     item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      if (img) openLightbox(img.src);
+      openLightbox(item);
     });
 
     item.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const img = item.querySelector('img');
-        if (img) openLightbox(img.src);
+        openLightbox(item);
       }
     });
   });
+
+  // Lightbox navigation button handlers
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateLightbox(-1);
+    });
+  }
+
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateLightbox(1);
+    });
+  }
 
   // Lightbox close button handler
   if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
   }
 
-  // Lightbox backdrop click handler
+  // Lightbox backdrop click & touch swipe handlers
   if (lightboxModal) {
     lightboxModal.addEventListener('click', (e) => {
       if (e.target === lightboxModal) {
         closeLightbox();
       }
     });
+
+    let touchStartX = 0;
+    lightboxModal.addEventListener('touchstart', (e) => {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchStartX = e.changedTouches[0].screenX;
+      }
+    }, { passive: true });
+
+    lightboxModal.addEventListener('touchend', (e) => {
+      if (!lightboxModal.classList.contains('active')) return;
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        const deltaX = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(deltaX) > 50) {
+          navigateLightbox(deltaX > 0 ? -1 : 1);
+        }
+      }
+    }, { passive: true });
   }
 
-  // Lightbox Escape key dismiss handler
+  // Lightbox keyboard navigation (Escape, ArrowLeft, ArrowRight)
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('active')) {
+    if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
+    if (e.key === 'Escape') {
       closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      navigateLightbox(-1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      navigateLightbox(1);
     }
   });
 
